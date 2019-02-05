@@ -100,6 +100,7 @@ class BooksController extends Controller
     {
         $book->update([
             'title' => request('title'),
+            'publisher_id' => request('publisher'),
             'slug' => str_slug(request('title'), "-"),
             'author' => request('author'),
             'description' => request('description')

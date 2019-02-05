@@ -11,7 +11,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    @stack('scripts')
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -42,6 +41,17 @@
                               <a class="dropdown-item" href="{{ route('books.index') }}">List</a>
                               @auth
                               <a class="dropdown-item" href="{{ route('books.create') }}">Create</a>
+                              @endauth
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Publishers
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="{{ route('publishers.index') }}">List</a>
+                              @auth
+                              <a class="dropdown-item" href="{{ route('publishers.create') }}">Create</a>
                               @endauth
                             </div>
                         </li>

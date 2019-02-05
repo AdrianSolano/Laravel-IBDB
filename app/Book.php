@@ -12,4 +12,9 @@ class Book extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function publisher()
+    {
+        return $this->belongsTo(Publisher::class);
+    }
 }

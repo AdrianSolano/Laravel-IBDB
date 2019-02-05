@@ -17,17 +17,32 @@
     @endif
 </div>
 <div class="form-group">
-    <label for="publisher">Publisher</label>
-    <select class="form-control {{ $errors->has('publisher')?"is-invalid":"" }}" id="publisher" name="publisher">
-      @foreach($publishers as $publisher)
-        <option value="{{ $publisher->id }}" {{ (isset($book) && $publisher->id==$book->publisher_id)?"selected":($errors->has('publisher')?old('publisher'):'' ) }}>{{ $publisher->name }}</option>
-      @endforeach
-    </select>
-    @if( $errors->has('publisher') )
-    <div class="invalid-feedback">
-        {{ $errors->first('publisher') }}
+    <div class="row d-flex align-items-end">
+        <div class="col-10">
+            <label for="publisher">Publisher</label>
+            <select class="form-control {{ $errors->has('publisher')?"is-invalid":"" }}" id="publisher" name="publisher">
+              @foreach($publishers as $publisher)
+                  <option value="{{ $publisher->id }}"
+                  @if( ! $errors->isEmpty() )
+                    {{-- Aquí se entra cuando hay errores de validación --}}
+                    {{ old('publisher')==$publisher->id?" selected":"" }}
+                  @elseif( isset($book) )
+                    {{-- Aquí se entra cuando se carga el formulario de edición de libro --}}
+                    {{ $publisher->id==$book->publisher_id?"selected":"" }}
+                  @endif
+                  >{{ $publisher->name }}</option>
+              @endforeach
+            </select>
+            @if( $errors->has('publisher') )
+            <div class="invalid-feedback">
+                {{ $errors->first('publisher') }}
+            </div>
+            @endif
+        </div>
+        <div class="col-2">
+            <a class="btn btn-primary" href="{{ route('publishers.create') }}" target="_blank">New Publisher</a>
+        </div>
     </div>
-    @endif
 </div>
 <div class="form-group">
     <label for="description">Description</label>

@@ -15,19 +15,14 @@
             {{ $book->title }}
         </div>
         <div class="card-body">
-            <h5 class="card-title"><a href="{{ route('userbooks.index', $book->user->slug) }}" title="{{ $book->user->name }}'s book list">{{ $book->user->name }}</a></h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{ $book->author}}</h6>
+            <h5 class="card-title">User: <a href="{{ route('userbooks.index', $book->user->slug) }}" title="{{ $book->user->name }}'s book list">{{ $book->user->name }}</a></h5>
+            <h6 class="card-subtitle mb-2 text-muted">Author: {{ $book->author}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Publisher: {{ $book->publisher->name }}</h6>
             <p class="card-text">{{ str_limit($book->description, 300) }}</p>
 
 
-            @auth
-            <a href="/books/{{ $book->id }}/edit" class="btn btn-warning btn-sm mr-2 float-right">Edit</a>
-            <form action="/books/{{ $book->id }}" method="post" class="mr-2 float-right">
-                @csrf
-                @method('delete')
-                <button type="submit" class="btn btn-danger btn-sm">Delete Book</button>
-            </form>
-            @endauth
+            @include('public.books.partials.buttons')
+
             <a href="/books/{{ $book->slug }}" class="btn btn-primary btn-sm mr-2 float-right">More Info</a>
       </div>
     </div>

@@ -13,9 +13,3 @@
     <button type="submit" class="btn btn-primary">Save Book</button>
 </form>
 @endsection
-@push('estilos')
-    <link href="{{ mix('css/formularios/formularioLibro.css') }}" rel="stylesheet">
-@endpush
-@push('scripts')
-    <script src="{{ mix('/js/validaciones/validacionLibro.js') }}" defer ></script>
-@endpush
