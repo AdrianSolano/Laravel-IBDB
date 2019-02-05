@@ -81,36 +81,52 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/validaciones/validacionRegister.js":
-/*!*********************************************************!*\
-  !*** ./resources/js/validaciones/validacionRegister.js ***!
-  \*********************************************************/
+/***/ "./resources/js/profile/profileJS.js":
+/*!*******************************************!*\
+  !*** ./resources/js/profile/profileJS.js ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-document.addEventListener('DOMContentLoaded', function () {
-  var inputName = document.getElementById('name');
-  inputName.addEventListener('change', function (event) {
-    alert(" ".concat(event.target.value, " "));
+// document.addEventListener('DOMContentLoaded',function(){
+//   let myProfilePill = document.getElementById('myProfilePill');
+//   myProfilePill.addEventListener('show',function(event){
+//       alert("Se va mostrar la pesta単a" + event.target);
+//   });
+//
+//   let myBooksPill = document.getElementById('myBooksPill');
+//   myBooksPill.addEventListener('show',function(event){
+//     alert("Se va mostrar la pesta単a" + event.target);
+//   });
+//
+//   let friendsPill = document.getElementById('friendsPill');
+//   friendsPill.addEventListener('show',function(event){
+//       alert("Se va mostrar la pesta単a" + event.target);
+//   });
+//
+//
+// });
+$(function () {
+  $('#myTabPill a').on('show.bs.tab', function (e) {
+    alert(e.target.id);
   });
-  var inputRegister = document.getElementById('email');
 });
 
 /***/ }),
 
-/***/ 3:
-/*!***************************************************************!*\
-  !*** multi ./resources/js/validaciones/validacionRegister.js ***!
-  \***************************************************************/
+/***/ 4:
+/*!*************************************************!*\
+  !*** multi ./resources/js/profile/profileJS.js ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/adrian/Sites/Laravel-IBDB/resources/js/validaciones/validacionRegister.js */"./resources/js/validaciones/validacionRegister.js");
+module.exports = __webpack_require__(/*! /home/adrian/Sites/Laravel-IBDB/resources/js/profile/profileJS.js */"./resources/js/profile/profileJS.js");
 
 
 /***/ })

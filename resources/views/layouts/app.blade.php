@@ -68,6 +68,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/about">About</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/navPrueba">Prueba</a>
+                        </li>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -107,7 +110,7 @@
                 @yield('content')
             </main>
         </div>
-
+         @stack('scripts')
     </div>
 </body>
 </html>

@@ -16,7 +16,8 @@ mix.js('resources/js/app.js', 'public/js')
    .js('resources/js/validaciones/validacionLibro.js', 'public/js/validaciones/')
    .js('resources/js/validaciones/validacionLogin.js', 'public/js/validaciones/')
    .sass('resources/sass/formularios/formularioLibro.scss', 'public/css/formularios/')
-   .js('resources/js/validaciones/validacionRegister.js', 'public/js/validaciones/');
+   .js('resources/js/validaciones/validacionRegister.js', 'public/js/validaciones/')
+   .js('resources/js/profile/profileJS.js', 'public/js/profile/');
 
 
 if (mix.inProduction()) {
