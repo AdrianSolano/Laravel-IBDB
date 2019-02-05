@@ -16,6 +16,7 @@ Route::get('/', 'PagesController@index')->name('root');
 Route::get('/contact', 'PagesController@contact')->name('contact')->middleware('auth');
 Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/navPrueba', 'PagesController@navPrueba')->name('navPrueba');
+Route::get('/obtenerVista','PagesController@obtenerVista');
 
 // Rutas para la entidad Books
 Route::resource('/books', 'BooksController');

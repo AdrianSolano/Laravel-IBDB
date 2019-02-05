@@ -17,8 +17,17 @@
 //
 // });
 
+
+
 $(function() {
     $('#myTabPill a').on('show.bs.tab', function (e) {
-        alert(e.target.id);
+      axios.post('/obtenerVista', {
+          tab: e.target.id
+      }).then(function(response){
+              console.log(response)
+          })
+          .catch(function (error) {
+              console.log(error);
+          });
     })
 });

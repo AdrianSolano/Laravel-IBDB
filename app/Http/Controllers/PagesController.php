@@ -28,4 +28,9 @@ class PagesController extends Controller
     {
       return view('public.profile.navPrueba');
     }
+
+    public function obtenerVista()
+    {
+      //
+    }
 }
