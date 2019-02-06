@@ -24,3 +24,21 @@ document.addEventListener('DOMContentLoaded',function(){
   });
 
 });
+
+function gestionarErrores(input,errores){
+    var hayErrores = false;
+    let divErrores = input.next();
+    divErrores.html("");
+    input.removeClass("bg-success bg-danger");
+    if (errores.length === 0) {
+        input.addClass("bg-success");
+    } else {
+        hayErrores = true;
+        input.addClass("bg-danger");
+        for (let error of errores) {
+            divErrores.append("<div>"+error+"</div>");
+        }
+    }
+    input.parent().next().remove();
+    return hayErrores;
+}
