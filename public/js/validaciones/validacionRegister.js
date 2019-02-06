@@ -96,9 +96,12 @@
 document.addEventListener('DOMContentLoaded', function () {
   var inputName = document.getElementById('name');
   inputName.addEventListener('change', function (event) {
-    alert(" ".concat(event.target.value, " "));
+    alert(" Hola ");
   });
   var inputRegister = document.getElementById('email');
+  inputRegister.addEventListener('change', function (event) {
+    alert(" Hola email ");
+  });
 });
 
 /***/ }),

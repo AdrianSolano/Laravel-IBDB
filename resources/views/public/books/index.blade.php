@@ -16,7 +16,7 @@
         </div>
         <div class="card-body">
             <h5 class="card-title">User: <a href="{{ route('userbooks.index', $book->user->slug) }}" title="{{ $book->user->name }}'s book list">{{ $book->user->name }}</a></h5>
-            <h6 class="card-subtitle mb-2 text-muted">Author: {{ $book->author}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Author: {{ $book->author->pluck('name')->implode(', ') }}</h6>
             <h6 class="card-subtitle mb-2 text-muted">Publisher: {{ $book->publisher->name }}</h6>
             <p class="card-text">{{ str_limit($book->description, 300) }}</p>
 

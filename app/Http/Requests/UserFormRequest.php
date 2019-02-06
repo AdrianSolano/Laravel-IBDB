@@ -23,57 +23,50 @@ class UserFormRequest extends FormRequest
      */
     public function rules()
     {
-      $rules = array();
 
-      $rules['name'] = $this->validarNombre();
-      $rules['email'] = $this->validarEmail();
+        $rules = array();
 
-      return $rules;
+        $rules['name'] = $this->validarNombre();
+        $rules['email'] = $this->validarEmail();
+
+        return $rules;
     }
+
+
     public function messages()
     {
-          $mensajesNombre = $this->mensajesNombre();
-          $mensajesEmail = $this->mensajesEmail();
-          $mensajes = array_merge(
-              $mensajesNombre,
-              $mensajesEmail
-          );
-          return $mensajes;
+        $mensajesNombre = $this->mensajesNombre();
+        $mensajesEmail = $this->mensajesEmail();
+        $mensajes = array_merge(
+            $mensajesNombre,
+            $mensajesEmail
+        );
+        return $mensajes;
     }
 
-    protected function validarNombre()
-    {
-      return 'required|string|max:10';
+    protected function validarNombre(){
+        return 'required|string|max:10';
     }
 
-    protected function mensajesNombre()
-    {
-      $mensajes = array();
-      $mensajes["name.required"] = 'Introduzca el :attribute';
-      $mensajes["name.string"] = 'Introduzca el :attribute';
-      $mensajes["name.max"] = 'Supera el máximo';
-      return $mensajes;
+    protected function mensajesNombre(){
+        $mensajes = array();
+        $mensajes["name.required"] = 'Introduzca el nombre';
+        $mensajes["name.string"] = 'Introduzca el nombre';
+        $mensajes["name.max"] = 'Supera el máximo';
+        return $mensajes;
     }
 
-    protected function validarEmail()
-    {
-      return 'required|string|email|max:10|unique:users';
+    protected function validarEmail(){
+        return 'required|string|email|max:10|unique:users';
     }
 
-    protected function mensajesEmail()
-    {
-      $mensajes = array();
-      $mensajes['email.email'] = 'Introduzca un :attribute valido';
-      $mensajes['email.required'] = 'Es obligatorio introducir el :attribute';
-      return $mensajes;
+    protected function mensajesEmail(){
+        $mensajes = array();
+        $mensajes['email.email'] = 'Introduzca un email valido';
+        $mensajes['email.required'] = 'Es obligatorio introducir el email';
+        return $mensajes;
     }
 
-    public function attributes()
-    {
-        return [
-            'name'     => 'nombre de usuario',
-            'email' => 'email de usuario'
-        ];
-    }
+
 
 }
