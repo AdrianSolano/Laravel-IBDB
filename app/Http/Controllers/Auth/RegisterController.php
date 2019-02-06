@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Http\Requests\UserFormRequest;
+use App\Http\Requests\UserAjaxFormRequest;
 
 class RegisterController extends Controller
 {

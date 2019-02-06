@@ -75,7 +75,7 @@
     </div>
 </div>
 @push('scripts')
-    <script src="{{ asset('js/validacion.js') }}"></script>
+    <script src="{{ asset('js/validaciones/validacionRegister.js') }}"></script>
 @endpush
 @endsection
 

@@ -11,5 +11,16 @@ document.addEventListener('DOMContentLoaded',function(){
             console.log(error);
         });
   });
+  let inputEmail = document.getElementById('email');
+  inputEmail.addEventListener('change',function(event){
+    axios.post('/register/validation', {
+        name: inputEmail.value
+    }).then(function(response){
+            gestionarErrores($("#email"),response.data.name)
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+  });
 
 });

@@ -96,11 +96,23 @@
 document.addEventListener('DOMContentLoaded', function () {
   var inputName = document.getElementById('name');
   inputName.addEventListener('change', function (event) {
-    alert(" Hola ");
+    axios.post('/register/validation', {
+      name: inputName.value
+    }).then(function (response) {
+      gestionarErrores($("#name"), response.data.name);
+    }).catch(function (error) {
+      console.log(error);
+    });
   });
-  var inputRegister = document.getElementById('email');
-  inputRegister.addEventListener('change', function (event) {
-    alert(" Hola email ");
+  var inputEmail = document.getElementById('email');
+  inputEmail.addEventListener('change', function (event) {
+    axios.post('/register/validation', {
+      name: inputEmail.value
+    }).then(function (response) {
+      gestionarErrores($("#email"), response.data.name);
+    }).catch(function (error) {
+      console.log(error);
+    });
   });
 });
 
