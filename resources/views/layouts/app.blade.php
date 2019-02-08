@@ -100,6 +100,10 @@
                                 </div>
                             </li>
                         @endguest
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Búsqueda</button>
+                        </form>
                     </ul>
                 </div>
             </div>
@@ -110,7 +114,8 @@
                 @yield('content')
             </main>
         </div>
-         @stack('scripts')
     </div>
+
+    @stack('scripts')
 </body>
 </html>

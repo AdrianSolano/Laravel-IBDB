@@ -116,7 +116,7 @@ $(function () {
     axios.post('/obtenerVista', {
       tab: e.target.id
     }).then(function (response) {
-      console.log(response);
+      $("#div-".concat(idTab));
     }).catch(function (error) {
       console.log(error);
     });

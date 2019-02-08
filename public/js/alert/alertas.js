@@ -81,91 +81,37 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/validaciones/validacionRegister.js":
-/*!*********************************************************!*\
-  !*** ./resources/js/validaciones/validacionRegister.js ***!
-  \*********************************************************/
+/***/ "./resources/js/alert/alertas.js":
+/*!***************************************!*\
+  !*** ./resources/js/alert/alertas.js ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 document.addEventListener('DOMContentLoaded', function () {
-  var inputName = document.getElementById('name');
-  inputName.addEventListener('change', function (event) {
-    axios.post('/register/validation', {
-      name: inputName.value
-    }).then(function (response) {
-      gestionarErrores($("#name"), response.data.name);
-    }).catch(function (error) {
-      console.log(error);
-    });
-  });
-  var inputEmail = document.getElementById('email');
-  inputEmail.addEventListener('change', function (event) {
-    axios.post('/register/validation', {
-      name: inputEmail.value
-    }).then(function (response) {
-      gestionarErrores($("#email"), response.data.name);
-    }).catch(function (error) {
-      console.log(error);
-    });
+  var botonAlerta = document.getElementById('botonAlerta');
+  botonAlerta.addEventListener('click', function (event) {
+    crearAlerta();
   });
 });
 
-function gestionarErrores(input, errores) {
-  var hayErrores = false;
-  var divErrores = input.next();
-  divErrores.html("");
-  input.removeClass("bg-success bg-danger");
-
-  if (errores.length === 0) {
-    input.addClass("bg-success");
-  } else {
-    hayErrores = true;
-    input.addClass("bg-danger");
-    var _iteratorNormalCompletion = true;
-    var _didIteratorError = false;
-    var _iteratorError = undefined;
-
-    try {
-      for (var _iterator = errores[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-        var error = _step.value;
-        divErrores.append("<div>" + error + "</div>");
-      }
-    } catch (err) {
-      _didIteratorError = true;
-      _iteratorError = err;
-    } finally {
-      try {
-        if (!_iteratorNormalCompletion && _iterator.return != null) {
-          _iterator.return();
-        }
-      } finally {
-        if (_didIteratorError) {
-          throw _iteratorError;
-        }
-      }
-    }
-  }
-
-  input.parent().next().remove();
-  return hayErrores;
-}
+function crearAlerta() {}
 
 /***/ }),
 
-/***/ 3:
-/*!***************************************************************!*\
-  !*** multi ./resources/js/validaciones/validacionRegister.js ***!
-  \***************************************************************/
+/***/ 5:
+/*!*********************************************!*\
+  !*** multi ./resources/js/alert/alertas.js ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/adrian/Sites/Laravel-IBDB/resources/js/validaciones/validacionRegister.js */"./resources/js/validaciones/validacionRegister.js");
+module.exports = __webpack_require__(/*! /home/adrian/Sites/Laravel-IBDB/resources/js/alert/alertas.js */"./resources/js/alert/alertas.js");
 
 
 /***/ })

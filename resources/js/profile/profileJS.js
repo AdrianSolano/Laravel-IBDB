@@ -19,12 +19,13 @@
 
 
 
+
 $(function() {
     $('#myTabPill a').on('show.bs.tab', function (e) {
       axios.post('/obtenerVista', {
           tab: e.target.id
       }).then(function(response){
-              console.log(response)
+              $(`#div-${idTab}`)
           })
           .catch(function (error) {
               console.log(error);
