@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="{{{ asset('favicon.png') }}}">
 
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -68,9 +69,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/about">About</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/navPrueba">Perfil</a>
-                        </li>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -100,10 +98,6 @@
                                 </div>
                             </li>
                         @endguest
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Búsqueda</button>
-                        </form>
                     </ul>
                 </div>
             </div>
@@ -115,7 +109,6 @@
             </main>
         </div>
     </div>
-
-    @stack('scripts')
+     @stack('scripts')
 </body>
 </html>

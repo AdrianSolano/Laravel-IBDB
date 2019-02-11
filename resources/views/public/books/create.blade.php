@@ -4,7 +4,7 @@
 
 @section('content')
 <h1>Add New Book</h1>
-<form action="/books" method="post" novalidate>
+<form id="subBook" action="/books" method="post" novalidate>
 
     @csrf
 
@@ -12,4 +12,10 @@
 
     <button type="submit" class="btn btn-primary">Save Book</button>
 </form>
+<div id="mostrarLibros">
+
+</div>
 @endsection
+@push('scripts')
+    <script src="{{ mix('/js/validarForm/formBook.js') }}" defer ></script>
+@endpush

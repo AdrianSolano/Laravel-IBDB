@@ -28,6 +28,7 @@ Route::get('/users/{user}/books', 'UserBooksController@index')->name('userbooks.
 
 //Js
 Route::post('/register/validation', 'Auth\RegisterController@validacionAjax');
+Route::post('/books/crearLibroAjax','BooksController@crearBookAjax');
 
 //Mas Js
 Route::get('/navPrueba', 'PagesController@navPrueba')->name('navPrueba');

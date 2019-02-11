@@ -6,5 +6,6 @@
     "/js/profile/profileJS.js": "/js/profile/profileJS.js",
     "/js/validaciones/validacionLibro.js": "/js/validaciones/validacionLibro.js",
     "/js/validaciones/validacionLogin.js": "/js/validaciones/validacionLogin.js",
-    "/js/validaciones/validacionRegister.js": "/js/validaciones/validacionRegister.js"
+    "/js/validaciones/validacionRegistro.js": "/js/validaciones/validacionRegistro.js",
+    "/js/validarForm/formBook.js": "/js/validarForm/formBook.js"
 }

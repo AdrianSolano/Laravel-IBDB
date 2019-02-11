@@ -23,26 +23,4 @@ class PagesController extends Controller
     {
       return view('public.pages.about');
     }
-
-    public function navPrueba()
-    {
-      return view('public.profile.navPrueba');
-    }
-
-    public function obtenerVista($tab)
-    {//`${$idTab}`
-      $vista = NULL;
-      switch ($vista) {
-        case 'myProfilePill':
-          $vista = ('public.profile.myProfile');
-          break;
-        case 'myBooksPill':
-          $vista = ('public.profile.myBooks');
-          break;
-        case 'friendsPill':
-          $vista = ('public.profile.friends');
-          break;
-      }
-
-    }
 }

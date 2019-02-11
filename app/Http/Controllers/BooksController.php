@@ -6,6 +6,7 @@ use App\Book;
 use App\Publisher;
 use Illuminate\Http\Request;
 use App\Http\Requests\BookRequest;
+use App\Http\Requests\BookRequestAjax;
 
 class BooksController extends Controller
 {
@@ -121,4 +122,22 @@ class BooksController extends Controller
 
         return redirect('/');
     }
+    /**
+    * Crear libro con Ajax(axios) y redirigir
+    * @param  App\Http\Requests\BookRequestAjax  $request
+    */
+    protected function crearBookAjax(BookRequestAjax $request){
+
+      $book = Book::create([
+          'user_id' => $request->user()->id,
+          'publisher_id' => request('publisher'),
+          'title' => request('title'),
+          'slug' => str_slug(request('title'), "-"),
+          'author' => request('author'),
+          'description' => request('description')
+      ]);
+
+      return view('public.books.partials.showAjax', ['book' => $book]);
+
+  }
 }

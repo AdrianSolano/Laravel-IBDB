@@ -16,9 +16,10 @@ mix.js('resources/js/app.js', 'public/js')
    .js('resources/js/validaciones/validacionLibro.js', 'public/js/validaciones/')
    .js('resources/js/validaciones/validacionLogin.js', 'public/js/validaciones/')
    .sass('resources/sass/formularios/formularioLibro.scss', 'public/css/formularios/')
-   .js('resources/js/validaciones/validacionRegister.js', 'public/js/validaciones/')
+   .js('resources/js/validaciones/validacionRegistro.js', 'public/js/validaciones/')
    .js('resources/js/profile/profileJS.js', 'public/js/profile/')
-   .js('resources/js/alert/alertas.js', 'public/js/alert/');
+   .js('resources/js/alert/alertas.js', 'public/js/alert/')
+   .js('resources/js/validarForm/formBook.js', 'public/js/validarForm/');
 
 
 if (mix.inProduction()) {

@@ -16,6 +16,7 @@
     </div>
     @endif
 </div>
+
 <div class="form-group">
     <div class="row d-flex align-items-end">
         <div class="col-10">
@@ -24,7 +25,6 @@
               @foreach($publishers as $publisher)
                   <option value="{{ $publisher->id }}"
                   @if( ! $errors->isEmpty() )
-                    {{-- Aquí se entra cuando hay errores de validación --}}
                     {{ old('publisher')==$publisher->id?" selected":"" }}
                   @elseif( isset($book) )
                     {{-- Aquí se entra cuando se carga el formulario de edición de libro --}}
