@@ -23,4 +23,8 @@ class PagesController extends Controller
     {
       return view('public.pages.about');
     }
+    public function navPrueba()
+    {
+      return view('public.profile.navPrueba');
+    }
 }

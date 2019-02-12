@@ -19,7 +19,8 @@ mix.js('resources/js/app.js', 'public/js')
    .js('resources/js/validaciones/validacionRegistro.js', 'public/js/validaciones/')
    .js('resources/js/profile/profileJS.js', 'public/js/profile/')
    .js('resources/js/alert/alertas.js', 'public/js/alert/')
-   .js('resources/js/validarForm/formBook.js', 'public/js/validarForm/');
+   .js('resources/js/validarForm/formBook.js', 'public/js/validarForm/')
+   .js('resources/js/model/model.js','public/js/model/');
 
 
 if (mix.inProduction()) {

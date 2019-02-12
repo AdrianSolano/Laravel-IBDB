@@ -33,4 +33,10 @@
     <div class="d-flex justify-content-center">
         {{ $books->links() }}
     </div>
+      @include('public.books.partials.modal')
+      
 @endsection
+
+@push('scripts')
+    <script src="{{ mix('/js/model/model.js') }}" defer ></script>
+@endpush

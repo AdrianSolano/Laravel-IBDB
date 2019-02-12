@@ -69,6 +69,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/about">About</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/navPrueba">Perfil</a>
+                        </li>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">

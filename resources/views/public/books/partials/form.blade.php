@@ -9,14 +9,23 @@
 </div>
 <div class="form-group">
     <label for="author">Author</label>
-    <input type="text" class="form-control {{ $errors->has('author')?"is-invalid":"" }}" id="author" name="author" placeholder="Introduce the book author" value="{{ isset($book)?$book->author:old('author') }}"required>
-    @if( $errors->has('author'))
+    <select class="form-control {{ $errors->has('author')?"is-invalid":"" }}" id="author" name="author[]" multiple>
+        @foreach($authors as $author)
+            <option value="{{ $author->id }}"
+                @if( !$errors->isEmpty() )
+                    {{ in_array($author->id, old('author') ?? [] )?"selected":"" }}
+                @elseif( isset($book) )
+                    {{ $book->authors->contains($author->id)?"selected":"" }}
+                @endif
+            >{{ $author->name }}</option>
+        @endforeach
+    </select>
+    @if( $errors->has('author') )
     <div class="invalid-feedback">
         {{ $errors->first('author') }}
     </div>
     @endif
 </div>
-
 <div class="form-group">
     <div class="row d-flex align-items-end">
         <div class="col-10">
@@ -25,6 +34,7 @@
               @foreach($publishers as $publisher)
                   <option value="{{ $publisher->id }}"
                   @if( ! $errors->isEmpty() )
+                    {{-- Aquí se entra cuando hay errores de validación --}}
                     {{ old('publisher')==$publisher->id?" selected":"" }}
                   @elseif( isset($book) )
                     {{-- Aquí se entra cuando se carga el formulario de edición de libro --}}

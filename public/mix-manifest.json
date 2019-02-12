@@ -3,6 +3,7 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/formularios/formularioLibro.css": "/css/formularios/formularioLibro.css",
+    "/js/model/model.js": "/js/model/model.js",
     "/js/profile/profileJS.js": "/js/profile/profileJS.js",
     "/js/validaciones/validacionLibro.js": "/js/validaciones/validacionLibro.js",
     "/js/validaciones/validacionLogin.js": "/js/validaciones/validacionLogin.js",
