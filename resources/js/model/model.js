@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
   // alertaModel();
 
-  eliminarBookAjax();
+  // eliminarBookAjax();
 });
 
 

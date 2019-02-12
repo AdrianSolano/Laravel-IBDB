@@ -93,9 +93,8 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-document.addEventListener('DOMContentLoaded', function () {
-  // alertaModel();
-  eliminarBookAjax();
+document.addEventListener('DOMContentLoaded', function () {// alertaModel();
+  // eliminarBookAjax();
 });
 
 function alertaModel() {
