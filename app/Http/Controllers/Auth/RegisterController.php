@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Http\Requests\UserFormRequest;
+use App\Http\Requests\UserAjaxFormRequest;
 
 class RegisterController extends Controller
 {
@@ -54,6 +56,12 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
     }
+
+    protected function validacionUsuarioAjax(UserAjaxFormRequest $request){
+        //Obtenermos todos los valores y devolvemos un array vacio
+        return array();
+    }
+
 
     /**
      * Create a new user instance after a valid registration.

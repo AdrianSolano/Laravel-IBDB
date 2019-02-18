@@ -31,6 +31,8 @@ Route::post('/register/validation', 'Auth\RegisterController@validacionAjax');
 Route::post('/books/crearLibroAjax','BooksController@crearBookAjax');
 Route::post('/books/eliminarBookAjax','BooksController@deleteAjax');
 
+Route::post('/books/buscarAjax','BooksController@obtenerLibrosAjax');
+
 //Mas Js
 Route::get('/navPrueba', 'PagesController@navPrueba')->name('navPrueba');
 Route::post('/obtenerVista','PagesController@obtenerVista');

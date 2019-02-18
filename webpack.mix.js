@@ -20,7 +20,8 @@ mix.js('resources/js/app.js', 'public/js')
    .js('resources/js/profile/profileJS.js', 'public/js/profile/')
    .js('resources/js/alert/alertas.js', 'public/js/alert/')
    .js('resources/js/validarForm/formBook.js', 'public/js/validarForm/')
-   .js('resources/js/model/model.js','public/js/model/');
+   .js('resources/js/model/model.js','public/js/model/')
+   .js('resources/js/search/search.js','public/js/search');
 
 
 if (mix.inProduction()) {

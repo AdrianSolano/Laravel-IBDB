@@ -5,10 +5,16 @@
 @section('content')
 <h1>Book List</h1>
 
+<form method="post" class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" id="inputBusqueda" type="search" placeholder="Search books" aria-label="Search">
+    <button id="inputBusqueda" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
+                  
+<div id="librosMostrar">
     <div class="d-flex justify-content-center">
         {{ $books->links() }}
     </div>
-
+    <div data-lista="libros">
     @forelse($books as $book)
     <div class="card mb-2">
         <div class="card-header">
@@ -29,14 +35,16 @@
     @empty
       <p>No hay libros</p>
     @endforelse
-
+    </div>
     <div class="d-flex justify-content-center">
         {{ $books->links() }}
     </div>
+</div>    
       @include('public.books.partials.modal')
       
 @endsection
 
 @push('scripts')
     <script src="{{ mix('/js/model/model.js') }}" defer ></script>
+    <script src="{{ mix('/js/search/search.js') }}" defer ></script>
 @endpush

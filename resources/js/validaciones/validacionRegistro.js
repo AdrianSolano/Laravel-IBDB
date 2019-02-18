@@ -69,8 +69,6 @@ function tieneErrores(input,errores){
     divErrores.html("");
     $(input).removeClass("is-invalid is-valid");
 
-    /*Si es undefined o esta vacío, 
-    significa que no hay errores en dicho campo*/
     if (errores === undefined || errores.length === 0) {
         $(input).addClass("is-valid");
     } else {
