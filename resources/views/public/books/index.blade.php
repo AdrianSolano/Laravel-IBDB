@@ -5,9 +5,9 @@
 @section('content')
 <h1>Book List</h1>
 
-<form method="post" class="form-inline my-2 my-lg-0">
+<form id="form" method="post" class="form-inline my-2 my-lg-0">
     <input class="form-control mr-sm-2" id="inputBusqueda" type="search" placeholder="Search books" aria-label="Search">
-    <button id="inputBusqueda" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <button id="busqueda" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 </form>
                   
 <div id="librosMostrar">

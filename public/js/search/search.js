@@ -94,8 +94,8 @@
 /***/ (function(module, exports) {
 
 document.addEventListener('DOMContentLoaded', function () {
-  var inputSearch = document.getElementById('inputBusqueda');
-  inputSearch.addEventListener('click', function (event) {
+  var inputSearch = document.getElementById('form');
+  inputSearch.addEventListener('submit', function (event) {
     event.preventDefault();
     obtenerLibrosAjax();
   });
@@ -106,7 +106,7 @@ function obtenerLibrosAjax() {
     axios.post('/buscarAjax', {
       busqueda: $("#inputBusqueda").val()
     }).then(function (response) {
-      response.getElementById("librosMostrar");
+      response.getElementById("#librosMostrar");
     }).catch(function (error) {
       console.log(error);
     });

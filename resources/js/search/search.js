@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded',function()
 {   
-    let inputSearch = document.getElementById('inputBusqueda');
-    inputSearch.addEventListener('click',function(event){
+    let inputSearch = document.getElementById('form');
+    inputSearch.addEventListener('submit',function(event){
         event.preventDefault();
         obtenerLibrosAjax();
     });
@@ -14,7 +14,7 @@ function obtenerLibrosAjax()
            busqueda: $("#inputBusqueda").val()
         })
         .then(function(response){
-            response.getElementById("librosMostrar");
+            response.getElementById("#librosMostrar");
         })
         .catch(function (error) {
            console.log(error);

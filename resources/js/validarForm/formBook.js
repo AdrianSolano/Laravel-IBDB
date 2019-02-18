@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded',function(){
   let inputDescriptionBook = document.getElementById('description');
   inputDescriptionBook.addEventListener('change',function(event){
     validarBook();
-  });*/
+  }); */
 
 });
 
