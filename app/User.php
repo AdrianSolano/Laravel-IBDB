@@ -32,4 +32,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(Book::class);
     }
+
+    public function owns($book)
+    {   
+        if($this->id == $book->user_id){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

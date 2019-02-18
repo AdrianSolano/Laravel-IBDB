@@ -15,6 +15,10 @@ class BooksController extends Controller
         $this->middleware('auth', [
             'only' => ['create' , 'store', 'edit', 'update', 'destroy']
         ]);
+
+        //$this->middleware('can:wank,book',[
+        //    'only' => ['edit','update','destroy']
+        //]);
     }
 
     /**
@@ -86,7 +90,15 @@ class BooksController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Book $book)
-    {
+    {   
+        //abort_if(!auth()->user()->owns($book), 403);
+        //$this->authorize('wank'. $book);
+        //abort_if ( \Gate::denies('wank', $book), 403);
+        if ( auth()->user()->cannot('wank',$book )){
+            abort(403);
+        }
+
+        
         $publishers = Publisher::all();
         $authors = Author::all();
 
