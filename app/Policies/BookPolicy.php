@@ -10,6 +10,10 @@ class BookPolicy
 {
     use HandlesAuthorization;
 
+    public function before($user, $ability){
+        if( $user->id == 2 ) return true;
+    }
+    
     /**
      * Determine whether the user can update the book.
      *
@@ -20,10 +24,5 @@ class BookPolicy
     public function touch(User $user, Book $book)
     {
         return $book->user_id == $user->id || $user->id == 2;
-    }
-
-    public function before($user, $ability)
-    {
-        if ( $user->id == 2 ) return true;
     }
 }

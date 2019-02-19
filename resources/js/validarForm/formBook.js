@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded',function(){
 
-  let subBook = document.getElementById('subBook');
+/*   let subBook = document.getElementById('subBook');
   subBook.addEventListener('submit',function(event){
       event.preventDefault();
       crearBookAjax();
-  });
+  }); */
 
 /*  let inputTitleBook = document.getElementById('title');
   inputTitleBook.addEventListener('change',function(event){
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
 });
 
-function crearBookAjax(){
+/* function crearBookAjax(){
     let datosFormulario = $("#subBook").serialize();
     axios.post('/books/crearLibroAjax',datosFormulario)
     .then(function(response){
@@ -53,3 +53,4 @@ function validarTitleBook(){
   });
 
 }
+ */

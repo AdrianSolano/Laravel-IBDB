@@ -33,12 +33,13 @@ class User extends Authenticatable
         return $this->hasMany(Book::class);
     }
 
-    public function owns($book)
-    {   
-        if($this->id == $book->user_id){
-            return true;
-        }else{
-            return false;
-        }
+    public function getFirstNameAttribute($value)
+    {
+        return ucfirst($value);
+    }
+
+    public function owns(Book $book)
+    {
+        return $this->id == $book->user_id;
     }
 }

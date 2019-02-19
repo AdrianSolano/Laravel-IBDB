@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded',function(){
 
-  let inputName = document.getElementById('name');
+  /* let inputName = document.getElementById('name');
   inputName.addEventListener('change',function(event){
     axios.post('/register/validation', {
         name: inputName.value
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded',function(){
         .catch(function (error) {
             console.log(error);
         });
-  });
+  }); */
 
 });
 

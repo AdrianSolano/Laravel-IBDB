@@ -94,10 +94,10 @@
 /***/ (function(module, exports) {
 
 document.addEventListener('DOMContentLoaded', function () {
-  var input = document.getElementById('title');
-  input.addEventListener('change', function (event) {
-    alert("El valor del input es: ".concat(event.target.value, " "));
-  });
+  /* let input = document.getElementById('title');
+  input.addEventListener('change',function(event){
+      alert(`El valor del input es: ${event.target.value} `);
+  }); */
 });
 
 /***/ }),

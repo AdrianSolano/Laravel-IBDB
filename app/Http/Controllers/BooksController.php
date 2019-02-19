@@ -20,12 +20,6 @@ class BooksController extends Controller
         ]);
     }
 
-    public function obtenerLibrosAjax()
-    {   
-        $books = Book::where("title", "LIKE", '%'.request('busqueda').'%')->get();
-        return view('public.books.show', ['book' => $books]);
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -71,6 +65,8 @@ class BooksController extends Controller
         ]);
 
         $book->authors()->sync( request('author') );
+
+        
 
         return redirect('/');
     }
@@ -140,26 +136,4 @@ class BooksController extends Controller
 
         return redirect('/');
     }
-    
-    public function deleteAjax(Book $book)
-    {
-        $book->authors()->detach();
-        $book->delete();
-        return redirect('/');
-    }
-    /**
-    * Crear libro con Ajax(axios) y redirigir
-    * @param  App\Http\Requests\BookRequestAjax  $request
-    */
-    protected function crearBookAjax(BookRequestAjax $request){
-      $book = Book::create([
-          'user_id' => $request->user()->id,
-          'publisher_id' => request('publisher'),
-          'title' => request('title'),
-          'slug' => str_slug(request('title'), "-"),
-          'author' => request('author'),
-          'description' => request('description')
-      ]);
-      return view('public.books.partials.showAjax', ['book' => $book]);
-  }
 }

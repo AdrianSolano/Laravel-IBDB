@@ -12,10 +12,6 @@
 
     <button type="submit" class="btn btn-primary">Save Book</button>
 </form>
-<div id="mostrarLibros">
 
-</div>
 @endsection
-@push('scripts')
-    <script src="{{ mix('/js/validarForm/formBook.js') }}" defer ></script>
-@endpush
+
