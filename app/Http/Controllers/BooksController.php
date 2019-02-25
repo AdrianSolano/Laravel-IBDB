@@ -13,10 +13,10 @@ class BooksController extends Controller
     public function __construct()
     {
         $this->middleware('auth', [
-            'only' => ['create' , 'store', 'edit', 'update', 'destroy']
+            'only' => ['create', 'store', 'edit', 'update', 'destroy']
         ]);
-        $this->middleware('can:touch,book',[
-            'only' => ['edit','update','destroy']
+        $this->middleware('can:touch,book', [
+            'only' => ['edit', 'update', 'destroy']
         ]);
     }
 
@@ -64,9 +64,7 @@ class BooksController extends Controller
             'description' => request('description')
         ]);
 
-        $book->authors()->sync( request('author') );
-
-        
+        $book->authors()->sync(request('author'));
 
         return redirect('/');
     }
@@ -118,9 +116,9 @@ class BooksController extends Controller
             'description' => request('description')
         ]);
 
-        $book->authors()->sync( request('author') );
+        $book->authors()->sync(request('author'));
 
-        return redirect('/books/'.$book->slug);
+        return redirect('/books/' . $book->slug);
     }
 
     /**
@@ -135,5 +133,20 @@ class BooksController extends Controller
         $book->delete();
 
         return redirect('/');
+    }
+
+    public function editAjax(BookRequest $request,$idBook)
+    {   
+        $request->book()->id;
+        $idBook->update([
+            'title' => request('title'),
+            'publisher_id' => request('publisher'),
+            'slug' => str_slug(request('title'), "-"),
+            'description' => request('description')
+        ]);
+
+        $idBook->authors()->sync(request('author'));
+
+        return redirect('/books/' . $idBook->slug);
     }
 }

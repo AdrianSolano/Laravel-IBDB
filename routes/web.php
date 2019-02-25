@@ -25,3 +25,16 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/users/{user}/books', 'UserBooksController@index')->name('userbooks.index');
+
+//Js
+Route::post('/register/validation', 'Auth\RegisterController@validacionAjax');
+Route::post('/books/crearLibroAjax','BooksController@crearBookAjax');
+Route::post('/books/eliminarBookAjax','BooksController@deleteAjax');
+
+Route::post('/books/buscarAjax','BooksController@obtenerLibrosAjax');
+
+Route::post('/books/editAjax','BooksController@editAjax');
+
+//Mas Js
+Route::get('/navPrueba', 'PagesController@navPrueba')->name('navPrueba');
+Route::post('/obtenerVista','PagesController@obtenerVista');
