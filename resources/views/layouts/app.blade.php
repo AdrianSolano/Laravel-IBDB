@@ -11,14 +11,10 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    
- 
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="{{{ asset('favicon.png') }}}">
-
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -71,9 +67,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/about">About</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/navPrueba">Perfil</a>
-                        </li>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -102,8 +95,6 @@
                                     </form>
                                 </div>
                             </li>
-
-
                         @endguest
                     </ul>
                 </div>
@@ -115,7 +106,7 @@
                 @yield('content')
             </main>
         </div>
+
     </div>
-    @stack('scripts')
 </body>
 </html>
