@@ -5,18 +5,20 @@ namespace App\Http\Controllers;
 use App\Book;
 use App\Publisher;
 use App\Author;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\BookRequest;
+use App\Notifications\BookCreated;
 
 class BooksController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth', [
-            'only' => ['create', 'store', 'edit', 'update', 'destroy']
+            'only' => ['create' , 'store', 'edit', 'update', 'destroy']
         ]);
-        $this->middleware('can:touch,book', [
-            'only' => ['edit', 'update', 'destroy']
+        $this->middleware('can:touch,book',[
+            'only' => ['edit','update','destroy']
         ]);
     }
 
@@ -27,7 +29,16 @@ class BooksController extends Controller
      */
     public function index()
     {
-        $books = Book::paginate(10);
+        $books = Book::with(['user','authors','publisher'])
+                    ->latest()
+                    ->paginate(10);
+
+        // $condition = true;
+
+        // if($condition){
+        //     $books = $books->load(['user','authors','publisher'])
+        //                 ->latest()->paginate(10);
+        // }
 
         return view('public.books.index')->withBooks($books);
     }
@@ -56,15 +67,23 @@ class BooksController extends Controller
      */
     public function store(BookRequest $request)
     {
+        //$cover = $request->file('cover');
+
+        //dd($cover);
+
         $book = Book::create([
             'user_id' => $request->user()->id,
             'publisher_id' => request('publisher'),
             'title' => request('title'),
             'slug' => str_slug(request('title'), "-"),
-            'description' => request('description')
+            'description' => request('description'),
+            //'cover' => $cover->store('covers','public'),
         ]);
 
-        $book->authors()->sync(request('author'));
+        $book->authors()->sync( request('author') );
+
+        $user = User::find(1);
+        $user->notify(new BookCreated($book));
 
         return redirect('/');
     }
@@ -77,7 +96,7 @@ class BooksController extends Controller
      */
     public function show($slug)
     {
-        $book = Book::where('slug', $slug)->firstOrFail();
+        $book = Book::with('authors')->where('slug', $slug)->firstOrFail();
 
         return view('public.books.show', ['book' => $book]);
     }
@@ -96,7 +115,8 @@ class BooksController extends Controller
         return view('public.books.edit', [
             'book' => $book,
             'authors' => $authors,
-            'publishers' => $publishers
+            'publishers' => $publishers,
+            
         ]);
     }
 
@@ -109,16 +129,21 @@ class BooksController extends Controller
      */
     public function update(BookRequest $request, Book $book)
     {
+        $cover = $request->file('cover');
+        
+        dd($cover);
+
         $book->update([
             'title' => request('title'),
             'publisher_id' => request('publisher'),
             'slug' => str_slug(request('title'), "-"),
-            'description' => request('description')
+            'description' => request('description'),
+            'cover' => $cover->store('covers','public'),
         ]);
 
-        $book->authors()->sync(request('author'));
+        $book->authors()->sync( request('author') );
 
-        return redirect('/books/' . $book->slug);
+        return redirect('/books/'.$book->slug);
     }
 
     /**
