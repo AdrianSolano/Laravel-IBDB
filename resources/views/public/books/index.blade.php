@@ -40,3 +40,4 @@
         {{ $books->links() }}
     </div>
 @endsection
+<!-- TELESCOPE_ENABLED=false -->
