@@ -7,6 +7,7 @@ use App\Publisher;
 use App\Author;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\BookRequest;
 use App\Notifications\BookCreated;
 
@@ -67,7 +68,7 @@ class BooksController extends Controller
      */
     public function store(BookRequest $request)
     {
-        //$cover = $request->file('cover');
+        $cover = $request->file('cover');
 
         //dd($cover);
 
@@ -77,7 +78,7 @@ class BooksController extends Controller
             'title' => request('title'),
             'slug' => str_slug(request('title'), "-"),
             'description' => request('description'),
-            //'cover' => $cover->store('covers','public'),
+            'cover' => ($cover?$cover->store('covers','public'):null),
         ]);
 
         $book->authors()->sync( request('author') );
@@ -130,15 +131,18 @@ class BooksController extends Controller
     public function update(BookRequest $request, Book $book)
     {
         $cover = $request->file('cover');
-        
-        dd($cover);
+
+        // En caso de tener ya uno, eliminamos la portada anterior
+        if( $cover && $book->cover  ){
+            Storage::disk('public')->delete($book->cover);
+        }
 
         $book->update([
             'title' => request('title'),
             'publisher_id' => request('publisher'),
             'slug' => str_slug(request('title'), "-"),
             'description' => request('description'),
-            'cover' => $cover->store('covers','public'),
+            'cover' => ($cover?$cover->store('covers','public'):$book->cover),
         ]);
 
         $book->authors()->sync( request('author') );
@@ -154,24 +158,14 @@ class BooksController extends Controller
      */
     public function destroy(Book $book)
     {
+        if( $book->cover ){
+            Storage::disk('public')->delete($book->cover);
+        }
+
         $book->authors()->detach();
         $book->delete();
 
-        return redirect('/');
-    }
-
-    public function editAjax(BookRequest $request,$idBook)
-    {   
-        $request->book()->id;
-        $idBook->update([
-            'title' => request('title'),
-            'publisher_id' => request('publisher'),
-            'slug' => str_slug(request('title'), "-"),
-            'description' => request('description')
-        ]);
-
-        $idBook->authors()->sync(request('author'));
-
-        return redirect('/books/' . $idBook->slug);
+        return redirect('/books')
+            ->with('message', "The book '{$book->title}' has been deleted.");
     }
 }

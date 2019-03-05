@@ -9,6 +9,12 @@
         {{ $books->links() }}
     </div>
 
+    @if(session('message'))
+    <div class="alert alert-primary" role="alert">
+            {{ session('message') }}
+    </div>
+    @endif
+    
     @forelse($books as $book)
     <div class="book-card card mb-2">
         <div class="card-header">
@@ -40,4 +46,3 @@
         {{ $books->links() }}
     </div>
 @endsection
-<!-- TELESCOPE_ENABLED=false -->

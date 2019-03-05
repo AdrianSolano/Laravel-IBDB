@@ -12,6 +12,9 @@
     </div>
     <div class="col">
         <div class="form-group">
+            @if( isset($book) )
+            <img class="img-fluid" src="http://ibdb.test/storage/{{ $book->cover }}" alt="">
+            @endif
             <label for="cover">Cover</label>
             <input type="file" class="form-control-file mt-1 {{ $errors->has('cover')?"is-invalid":"" }}" id="cover" name="cover">
             @if( $errors->has('cover'))
